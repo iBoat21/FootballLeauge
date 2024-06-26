@@ -1,0 +1,229 @@
+:root{
+    --light:#fff;
+    --dark: #000;
+    --second: #383838;
+    --secondLight: #f0f0f0;
+    --main: rgb(3, 8, 109);
+    --info: rgb(40, 169, 249);
+    --success: rgb(51, 255, 36);
+    --danger: #ff0000;
+    --warning: #ff0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--secondLight);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    'sidebar header header header header header'
+    'sidebar main main main  main main'
+    ;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    height: auto;
+}
+
+.header{
+    grid-area: header;
+    background: var(--secondLight);
+    color: var(--dark);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background: var(--main);
+    color: var(--light);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar nav img{
+    width: 64px;
+    height: 64px;
+    filter: invert(100%) brightness(100);
+    margin-bottom: 1rem;
+}
+
+.sidebar nav ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li{
+    margin: 1rem 0;
+}
+
+.sidebar nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.main-content{
+    grid-area: main;
+    padding: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.main-content table .text-center{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.main-content table th,
+.main-content table td{
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.main-content table th{
+    background-color: var(--main);
+    color: var(--light);
+}
+
+.main-content table td{
+    background-color: var(--light);
+}
+
+.nested-container{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas: 
+    'top top'
+    'left-mid right-mid'
+    ;
+    background-color: var(--light);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nested-container .top{
+    grid-area: top;
+    text-align: center;
+}
+
+.nested-container .top img{
+    max-width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nested-container .left-mid,
+.nested-container .right-mid{
+    display: block;
+    flex-direction: column;
+}
+.nested-container .left-mid .card,
+.nested-container .right-mid {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for cards */
+    margin-bottom: 1rem;
+}
+
+.nested-container .left-mid .card .card-title {
+    font-size: 1.5rem; /* Font size for card title */
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nested-container .left-mid .card .card-content {
+    font-size: 1.2rem; /* Font size for card content */
+    text-align: center;
+}
+
+.nested-container .right-mid h2 {
+    font-size: 1.5rem; /* Font size for section title */
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.nested-container .right-mid form {
+    margin-bottom: 0.5rem;
+}
+
+.nested-container .right-mid label {
+    display: block;
+    font-size: 1.2rem; /* Font size for labels */
+    margin-bottom: 0.25rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--info);
+    color: var(--dark);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--main);
+    color: var(--light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            'header'
+            'sidebar'
+            'main';
+        grid-template-rows: auto auto 1fr;
+        text-align: center;
+    }
+}
