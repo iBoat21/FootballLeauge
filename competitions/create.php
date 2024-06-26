@@ -23,7 +23,7 @@
                 $newImageName = uniqid();
                 $newImageName .= '.'. $imageExtension;
                 move_uploaded_file($tmpName, '../images/'. $newImageName);
-                $query = "INSERT INTO competition (name, banner, max_teams) VALUES ('$name','$newImageName','$max_teams')";
+                $query = "INSERT INTO competition (name, slug, banner, max_teams) VALUES ('$name','$slug','$newImageName','$max_teams')";
                 mysqli_query($conn,$query);
                 echo "<script>
                 alert('Success Fully Add Competitions');
