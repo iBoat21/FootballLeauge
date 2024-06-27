@@ -4,7 +4,7 @@
     if(isset($_POST["submit"])){
         $name = $_POST["competition"];
         $max_teams = $_POST["teams"];
-        $slg = generateSlug($name);
+        $slug = generateSlug($name);
         if($_FILES["image"]["error"] === 4 ){
             echo "<script>alert('Image Does Not Exits');</script>";
         }else{
